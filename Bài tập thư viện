@@ -6,21 +6,18 @@ import os
 import pandas as pd 
 FILE_NAME = "employees.csv"
 def save_to_csv(data):
-    """Lưu dữ liệu vào file CSV"""
     file_exists = os.path.isfile(FILE_NAME)
     with open(FILE_NAME, mode='a', newline='', encoding='utf-8') as file:
         writer = csv.DictWriter(file, fieldnames=data.keys())
         if not file_exists:
-            writer.writeheader()  # Ghi tiêu đề nếu file chưa tồn tại
+            writer.writeheader()  
         writer.writerow(data)
 def clear_entries():
-    """Xóa các trường nhập liệu"""
     for entry in entries.values():
         entry.delete(0, tk.END)
     gender_var.set("Nam")
     customer_type_var.set("Khác")
 def submit_data():
-    """Xử lý lưu dữ liệu khi nhấn nút Lưu"""
     data = {
         "Mã": entries['Mã'].get(),
         "Tên": entries['Tên'].get(),
@@ -39,7 +36,6 @@ def submit_data():
     messagebox.showinfo("Thành công", "Dữ liệu đã được lưu.")
     clear_entries()
 def show_today_birthdays():
-    """Hiển thị danh sách nhân viên có sinh nhật hôm nay"""
     today = datetime.now().strftime("%d/%m/%Y")
     if not os.path.isfile(FILE_NAME):
         messagebox.showinfo("Không có dữ liệu", "Chưa có dữ liệu nhân viên.")
@@ -53,7 +49,6 @@ def show_today_birthdays():
     else:
         messagebox.showinfo("Không có sinh nhật", "Không có nhân viên sinh nhật hôm nay.")
 def export_to_excel():
-    """Xuất danh sách nhân viên ra file Excel"""
     if not os.path.isfile(FILE_NAME):
         messagebox.showinfo("Không có dữ liệu", "Chưa có dữ liệu nhân viên.")
         return
