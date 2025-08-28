@@ -37,7 +37,7 @@ body {
   width: 500px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 19px;
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
 }
 
@@ -49,14 +49,10 @@ body {
     justify-content: center;
     width: 100%;
     max-width: 420px; 
-    overflow: hidden;
+    overflow: hidden; 
 }
-
 
 .right img {
     max-width: 100%;
-    max-height: calc(100vh - 120px); 
-    height: auto;
-    object-fit: contain;
-    display: block;
+    max-height: calc(100vh - 120px);   
 }
